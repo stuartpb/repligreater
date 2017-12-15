@@ -8,7 +8,8 @@ magnetDepth = 3;
 distanceToFrame = 28;
 
 // dictated
-holderWidth = 16;
+holderWidth = 3;
+armWidth = 10;
 holderDepth = 6;
 handleGrab = 16;
 
@@ -17,21 +18,22 @@ $fn = 90;
 
 angle = atan2( -distanceToFrame, distanceBetweenCenters / 2);
 armLength = sqrt(pow(distanceToFrame,2)+pow(distanceBetweenCenters / 2,2));
+grabWidth = rodDiameter + holderWidth*2;
 
 difference () {
   union () {
     linear_extrude(handleGrab) {
-      translate([-distanceBetweenCenters/2,distanceToFrame/2,0]) circle(d=holderWidth);
-      translate([distanceBetweenCenters/2,distanceToFrame/2,0]) circle(d=holderWidth);
+      translate([-distanceBetweenCenters/2,distanceToFrame/2,0]) circle(d=grabWidth);
+      translate([distanceBetweenCenters/2,distanceToFrame/2,0]) circle(d=grabWidth);
     }
     linear_extrude(holderDepth) {
       translate([-distanceBetweenCenters/2,distanceToFrame/2,0])
-        rotate([0,0,angle]) translate([0,-holderWidth/2,0])
-        square([armLength, holderWidth]);
+        rotate([0,0,angle]) translate([0,-armWidth/2,0])
+        square([armLength, armWidth]);
       translate([distanceBetweenCenters/2,distanceToFrame/2,0])
-        rotate([0,0,180-angle]) translate([0,-holderWidth/2,0])
-        square([armLength, holderWidth]);
-      translate([0,-distanceToFrame/2,0]) circle(d=holderWidth);
+        rotate([0,0,180-angle]) translate([0,-armWidth/2,0])
+        square([armLength, armWidth]);
+      translate([0,-distanceToFrame/2,0]) circle(d=magnetDiameter + holderWidth*2);
     }
   }
   linear_extrude(handleGrab) {
