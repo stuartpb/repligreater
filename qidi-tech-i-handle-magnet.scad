@@ -1,8 +1,8 @@
 // measured
 distanceBetweenCenters = 96;
-rodDiameter = 10;
-magnetDiameter = 6;
-magnetDepth = 3;
+rodDiameter = 11; // 10mm measured
+magnetDiameter = 6.5; // 6mm measured / spec'd
+magnetDepth = 3.5; // 3mm measured
 
 // measured-ish
 distanceToFrame = 28;
@@ -37,10 +37,13 @@ difference () {
     }
   }
   linear_extrude(handleGrab) {
-    translate([-distanceBetweenCenters/2,distanceToFrame/2,0]) circle(d=rodDiameter);
-    translate([distanceBetweenCenters/2,distanceToFrame/2,0]) circle(d=rodDiameter);
+    translate([-distanceBetweenCenters/2,distanceToFrame/2,0])
+      circle(d=rodDiameter);
+    translate([distanceBetweenCenters/2,distanceToFrame/2,0])
+      circle(d=rodDiameter);
   }
   linear_extrude(magnetDepth) {
-    translate([0,-distanceToFrame/2,0]) circle(d=magnetDiameter);
+    translate([0,-distanceToFrame/2,0])
+      circle(d=magnetDiameter);
   }
 }
