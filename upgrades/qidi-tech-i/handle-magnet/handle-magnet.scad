@@ -46,10 +46,12 @@ $fn = 90;
 
 /* [Hidden] */
 
+// Pythagorean theorem for finding length by X and Y distances.
 function hypotenuse(a, b) = sqrt(a*a + b*b);
 
 // Angle from handle rods to magnet
 angle = atan2(-distanceToFrame, distanceBetweenCenters/2);
+// Length of arms
 armLength = hypotenuse(distanceToFrame, distanceBetweenCenters/2);
 // Width of handle-holding cylinders
 grabWidth = rodDiameter + holderWidth*2;
