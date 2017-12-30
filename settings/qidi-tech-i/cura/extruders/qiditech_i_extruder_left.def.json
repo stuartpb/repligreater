@@ -1,0 +1,20 @@
+{
+    "id": "qiditech_i_extruder_left",
+    "version": 2,
+    "name": "Left Extruder",
+    "inherits": "fdmextruder",
+    "metadata": {
+        "type": "extruder",
+        "author": "Stuart P. Bentley",
+        "manufacturer": "Qidi Tech",
+        "machine": "qiditech_i",
+        "position": "0"
+    },
+
+    "overrides": {
+        "extruder_nr": {
+            "default_value": 1,
+            "maximum_value": "1"
+        }
+    }
+}
