@@ -14,11 +14,11 @@ The printer definition uses [Cura's definition for the MakerBot Replicator][make
 
 ## Dual extruders
 
-I've set the extruder count to 2, with extruders defined for each rail; the current definitions attempt to define the "Left Extruder" as coming before the "Right Extruder", but this [led to problems][Ultimaker/Cura#3064], and will probably be rolled back in the next commit (at which point I'll rewrite this sentence to describe the attempt).
+I've set the extruder count to 2, with extruders defined for each rail: due to the way the extruders are numbered in the printer's firmware, the "Right Extruder" is presented on the *left* in Cura's UI, and vice versa. Attempts to re-number the extruders for the UI [led to problems][Ultimaker/Cura#3064], so, until this issue gets sorted out, we'll just have to live with it.
 
 [Ultimaker/Cura#3064]: https://github.com/Ultimaker/Cura/issues/3064
 
-Even without the proper order defined, the extruders are labeled "Right Extruder" and "Left Extruder", to clarify which is which. (It can stil lbe confusing which extruder "extruder 1" refers to, as the UI presents them as "1" and "2", while the code describes them as "0" and "1".)
+Even without the proper order defined, the extruders are labeled "Right Extruder" and "Left Extruder" (presented in menus and tooltips), to clarify which is which. (It can still be confusing which extruder "extruder 1" refers to, as the UI presents them as "1" and "2", while the code describes them as "0" and "1".)
 
 ## Start and End Custom G-code
 
