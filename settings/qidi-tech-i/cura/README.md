@@ -70,7 +70,6 @@ Explicitly processing RepRap-flavored G-code as MakerBot-flavored G-code like th
 [revert tool selection]: https://github.com/markwal/GPX/blob/0cfa00807e52bc81f67447968794706ffd6a0eb9/src/gpx/gpx.c#L4615-L4616
 [changeToolIndex]: https://github.com/jetty840/Sailfish-MightyBoardFirmware/blob/2d2425061229613bd6059d9055e6ac390914653a/firmware/src/MightyBoard/Motherboard/Command.cc#L1505
 
-Amongst Cura's distinct RepRap flavors, the differences between `RepRap (Marlin/Sprinter)` and `RepRap (RepRap)` appear to be [minimal][RepRapFlavorParser], with none of [the differences in CuraEngine][EGCodeFlavor::REPRAP] impacting any [commands handled by GPX][GPX M commands] (only [M203][CuraEngine M203], [M204][CuraEngine M204], and [M205/M566][writeJerk], as described [on the RepRap wiki][RepRap G-code]).
 
 [RepRapFlavorParser]: https://github.com/Ultimaker/Cura/blob/0f944c094d88fe87c8f34a21018a2227ee9196f0/plugins/GCodeReader/RepRapFlavorParser.py
 [EGCodeFlavor::REPRAP]: https://github.com/Ultimaker/CuraEngine/blob/4463c7254fc942fffc842c7d4c9a2c11c57be70c/src/gcodeExport.cpp
@@ -79,5 +78,6 @@ Amongst Cura's distinct RepRap flavors, the differences between `RepRap (Marlin/
 [CuraEngine M204]: https://github.com/Ultimaker/CuraEngine/blob/4463c7254fc942fffc842c7d4c9a2c11c57be70c/src/gcodeExport.cpp#L1051-L1102
 [writeJerk]: https://github.com/Ultimaker/CuraEngine/blob/4463c7254fc942fffc842c7d4c9a2c11c57be70c/src/gcodeExport.cpp#L1113-L1118
 [RepRap G-code]: http://reprap.org/wiki/G-code
+[Ultimaker/Cura#2919 (comment)]: https://github.com/Ultimaker/Cura/issues/2919#issuecomment-354684488
 
 **TL;DR:** I spent five hours exhaustively searching the codepaths involved and can conclusively assert that **different flavors of G-code will almost certainly not impact print behavior in any way whatsoever**. The only place where it *might* have an impact is if you *explicitly mess it up*, and even *then* it'll probably be okay.
